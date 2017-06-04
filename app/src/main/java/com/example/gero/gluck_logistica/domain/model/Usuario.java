@@ -5,47 +5,76 @@ package com.example.gero.gluck_logistica.domain.model;
  */
 
 public class Usuario {
-    String nombre;
-    String email;
-    String password;
-    String userId;
+    private String id;
+    private String nombre;
+    private String email;
+    private String password;
+    private String userId;
 
-    public Usuario(String nombre, String email, String password, String userId) {
-        this.nombre = nombre;
-        this.email = email;
-        this.password = password;
-        this.userId = userId;
+    private Usuario(Builder builder) {
+        id = builder.id;
+        nombre = builder.nombre;
+        email = builder.email;
+        password = builder.password;
+        userId = builder.userId;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+
 
     public String getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public static class Builder{
+        private String id;
+        private String nombre;
+        private String email;
+        private String password;
+        private String userId;
+
+        public Builder id(String id){
+            this.id = id;
+            return this;
+        }
+
+        public Builder nombre(String nombre){
+            this.nombre = nombre;
+            return this;
+        }
+
+        public Builder email(String email){
+            this.email=email;
+            return this;
+        }
+        public Builder password(String password){
+            this.password = password;
+            return this;
+        }
+
+        public Builder userId(String userId){
+            this.userId=userId;
+            return this;
+        }
+
+        public Usuario build(){
+            return new Usuario(this);
+        }
+
     }
 }
