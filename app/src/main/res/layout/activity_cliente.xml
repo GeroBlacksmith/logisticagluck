@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#EEEEEE"
+    >
+    <!-- Etiqueta Nombre-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cliente_nombre_titulo"
+        android:textSize="24sp"
+        android:text="Nombre: "
+        android:textColor="#cd1111"
+        />
+    <!--  Nombre-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cliente_nombre"
+        android:textSize="24sp"
+        android:text="Nombre"
+        android:layout_toRightOf="@id/tv_cliente_nombre_titulo"
+        />
+    <!-- Etiqueta Direccion-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cliente_direccion_titulo"
+        android:textSize="24sp"
+        android:layout_below="@id/tv_cliente_nombre_titulo"
+        android:text="Direccion: "
+        android:textColor="#cd1111"
+        />
+    <!-- Direccion-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cliente_direccion"
+        android:layout_below="@id/tv_cliente_nombre"
+        android:textSize="24sp"
+        android:text="Direccion"
+        android:layout_toRightOf="@id/tv_cliente_direccion_titulo"/>
+    <!-- Etiqueta Telefono-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cliente_telefono_titulo"
+        android:textSize="24sp"
+        android:layout_below="@id/tv_cliente_direccion_titulo"
+        android:text="Telefono: "
+        android:textColor="#cd1111"/>
+
+
+    <!-- Telefono-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cliente_telefono"
+        android:layout_below="@id/tv_cliente_direccion"
+        android:layout_toRightOf="@id/tv_cliente_telefono_titulo"
+        android:textSize="24sp"
+        android:text="Telefono"/>
+    <!-- Etiqueta Mail -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cliente_mail_titulo"
+        android:textSize="24sp"
+        android:text="Email: "
+        android:layout_below="@id/tv_cliente_telefono_titulo"
+        android:textColor="#cd1111"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_cliente_mail"
+        android:layout_below="@id/tv_cliente_telefono"
+        android:textSize="24sp"
+        android:layout_toRightOf="@id/tv_cliente_mail_titulo"
+        android:text="Mail"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/tv_hidden_firebase_key"/>
+</RelativeLayout>

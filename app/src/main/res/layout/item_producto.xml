@@ -1,0 +1,32 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#ececec">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/beer_bottle_xxhdpi"
+        android:id="@+id/iv_producto_botella"
+        android:layout_marginRight="16dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marca"
+        android:id="@+id/tv_producto_marca"
+        android:layout_toRightOf="@id/iv_producto_botella"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Variedad"
+        android:id="@+id/tv_producto_variedad"
+        android:layout_toRightOf="@id/iv_producto_botella"
+        android:layout_below="@id/tv_producto_marca"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000cc"
+        android:id="@+id/tv_producto_capacidad"
+        android:layout_toRightOf="@id/iv_producto_botella"
+        android:layout_below="@id/tv_producto_variedad"/>
+</RelativeLayout>

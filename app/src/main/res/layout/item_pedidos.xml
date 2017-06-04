@@ -1,0 +1,62 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_pedido_cliente"
+        android:text="Nombre Cliente"
+        android:textSize="32sp"
+        android:textColor="#f04422"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_pedido_producto"
+        android:layout_below="@id/tv_pedido_cliente"
+        android:text="PRODUCTO"
+        android:textColor="#1111A0"
+        android:textSize="24sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        android:id="@+id/tv_pedido_producto_cantidad_titulo"
+        android:text="CANTIDAD: "
+        android:textColor="#0000FF"
+        android:layout_below="@id/tv_pedido_producto"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/tv_pedido_producto_cantidad"
+        android:text="999"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/tv_pedido_producto_cantidad_titulo"
+        android:layout_below="@id/tv_pedido_producto"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:id="@+id/tv_pedido_fecha_titulo"
+        android:layout_below="@id/tv_pedido_producto_cantidad"
+        android:text="Fecha del pedido: "
+        android:textSize="24sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="8dp"
+        android:id="@+id/tv_pedido_fecha"
+        android:layout_below="@id/tv_pedido_producto_cantidad"
+        android:layout_toRightOf="@id/tv_pedido_fecha_titulo"
+        android:text="01/01/2017"
+        android:textSize="16sp"/>
+
+</RelativeLayout>
