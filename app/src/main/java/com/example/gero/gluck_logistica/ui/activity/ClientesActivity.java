@@ -92,15 +92,7 @@ public class ClientesActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot snapshot, String s) {
                 //if(!snapshot.getKey().equals("schema")){
-                Cliente auxCliente = new Cliente();
-                HashMap<String, String> cliente = (HashMap<String, String>) snapshot.getValue();
-                String claves = snapshot.getKey();
-                auxCliente.setNombre(cliente.get("nombre"));
-                auxCliente.setDireccion(cliente.get("direccion"));
-                auxCliente.setTelefono(cliente.get("telefono"));
-                auxCliente.setMail(cliente.get("mail"));
-                auxCliente.setFirebaseKey(claves);
-                mClientes.add(auxCliente);
+
                 adapter.notifyDataSetChanged();
                 //}
 

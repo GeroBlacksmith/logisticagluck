@@ -23,7 +23,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "gluckDB";
 
-    private static final String TABLE_CLIENTES = new Cliente().getNombreTabla();
+    private static final String TABLE_CLIENTES = "cliente";
 
     private static final String KEY_ID="_id";
     private static final String KEY_NOMBRE="nombre";
@@ -77,8 +77,12 @@ public class DBHandler extends SQLiteOpenHelper {
             if (cursor != null)
                 cursor.moveToFirst();
 
-            Cliente cliente = new Cliente(cursor.getString(1),
-                    cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            Cliente cliente = new Cliente.Builder()
+                    .nombre(cursor.getString(1))
+                    .direccion(cursor.getString(2))
+                    .telefono(cursor.getString(3))
+                    .mail(cursor.getString(4))
+                    .build();
             return cliente;
         }catch(SQLiteException se){
             Log.e("sqliteEx: ", se.getMessage());
@@ -95,12 +99,13 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor  cursor=db.rawQuery(selectQuery, null);
         if(cursor.moveToFirst()){
             do{
-                Cliente cliente = new Cliente();
-                cliente.setID(Integer.parseInt(cursor.getString(0)));
-                cliente.setNombre(cursor.getString(1));
-                cliente.setDireccion(cursor.getString(2));
-                cliente.setTelefono(cursor.getString(3));
-                cliente.setMail(cursor.getString(4));
+                Cliente cliente = new Cliente.Builder()
+                        .nombre(cursor.getString(1))
+                        .direccion(cursor.getString(2))
+                        .telefono(cursor.getString(3))
+                        .mail(cursor.getString(4))
+                        .build();
+
                 listaDeClientes.add(cliente);
             }while(cursor.moveToNext());
 
@@ -120,21 +125,21 @@ public class DBHandler extends SQLiteOpenHelper {
     public int updateCliente(Cliente cliente){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, cliente.getID());
+        values.put(KEY_ID, 0);
         values.put(KEY_NOMBRE, cliente.getNombre());
         values.put(KEY_DIRECCION, cliente.getDireccion());
         values.put(KEY_TELEFONO, cliente.getTelefono());
         values.put(KEY_MAIL, cliente.getMail());
         return db.update(TABLE_CLIENTES, values, KEY_ID+" = ?",
-                new String[]{String.valueOf(cliente.getID())});
+                new String[]{String.valueOf(0)});
 
     }
 
     public void deleteCliente(Cliente cliente){
         SQLiteDatabase db = this.getWritableDatabase();
-        Log.d("id", String.valueOf(cliente.getID()));
+        Log.d("id", String.valueOf(0));
         db.delete(TABLE_CLIENTES, KEY_ID + " = ?",
-                new String[] { String.valueOf(cliente.getID()) });
+                new String[] { String.valueOf(0) });
         /*db.delete(TABLE_CLIENTES, KEY_NOMBRE + " = ?, "+KEY_DIRECCION + " = ?, "+KEY_TELEFONO + " = ?, "+KEY_MAIL + " = ?",
                 new String[] { cliente.getNombre(),cliente.getDireccion(),cliente.getTelefono(),cliente.getMail() });*/
         /*db.delete(TABLE_CLIENTES,

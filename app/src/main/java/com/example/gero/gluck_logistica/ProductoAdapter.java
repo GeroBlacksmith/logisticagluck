@@ -15,32 +15,19 @@ import com.example.gero.gluck_logistica.domain.model.Producto;
 
 public class ProductoAdapter extends BaseAdapter{
     private Context mContext;
-    private Producto[] productos={
-            new Producto(),
-            new Producto(),
-            new Producto(),
 
-    };
     public ProductoAdapter(Context context){
         this.mContext=context;
-        productos[0].marca="Puel";
-        productos[1].marca="Bandaccari";
-        productos[2].marca="Bandaccari";
-        productos[0].variedad="trigo";
-        productos[1].variedad="IPA";
-        productos[2].variedad="Golden";
-        productos[2].capacidad=1000;
-        productos[1].capacidad=1000;
-        productos[0].capacidad=1000;
+
     }
     @Override
     public int getCount() {
-        return this.productos.length;
+        return 0;
     }
 
     @Override
     public Object getItem(int position) {
-        return this.productos[position];
+        return null;
     }
 
     @Override
@@ -57,13 +44,7 @@ public class ProductoAdapter extends BaseAdapter{
 
             view = inflater.inflate(R.layout.item_producto, null);
         }
-        TextView tvMarca = (TextView)view.findViewById(R.id.tv_producto_marca);
-        TextView tvVariedad = (TextView)view.findViewById(R.id.tv_producto_variedad);
-        TextView tvCapacidad = (TextView)view.findViewById(R.id.tv_producto_capacidad);
 
-        tvCapacidad.setText(String.valueOf(productos[position].capacidad));
-        tvMarca.setText(productos[position].marca);
-        tvVariedad.setText(productos[position].variedad);
 
         return view;
     }

@@ -34,21 +34,7 @@ public class ClienteNuevoActivity extends AppCompatActivity implements TextWatch
         public void onClick(View v) {
             Intent agregarClienteIntent = new Intent(ClienteNuevoActivity.this, ClientesActivity.class);
             //DBHandler dbHandler = new DBHandler(ClienteNuevoActivity.this);
-            Cliente cliente = new Cliente();
 
-            cliente.setNombre(etNombre.getText().toString());
-            cliente.setDireccion(etDireccion.getText().toString());
-            cliente.setTelefono(etTelefono.getText().toString());
-            cliente.setMail(etMail.getText().toString());
-            //dbHandler.addCliente(cliente);
-
-            HashMap<String, String> nuevoCliente = new HashMap<String, String>();
-            nuevoCliente.put("nombre", cliente.getNombre());
-            nuevoCliente.put("telefono", cliente.getTelefono());
-            nuevoCliente.put("mail", cliente.getMail());
-            nuevoCliente.put("direccion", cliente.getDireccion());
-            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Cliente");
-            mDatabase.push().setValue(nuevoCliente);
             startActivity(agregarClienteIntent);
 
         }
@@ -61,27 +47,7 @@ public class ClienteNuevoActivity extends AppCompatActivity implements TextWatch
         Opcion.Grafica.pantallaCompleta(ClienteNuevoActivity.this);
         setContentView(R.layout.activity_cliente_nuevo);
         Opcion.Grafica.ocultarActionBar(getSupportActionBar());
-        ingresarCliente = (Button) findViewById(R.id.btn_agregar_cliente);
-        //TODO validar campos con TextWatcher e informar de errores con TextView.setError
-        //ej etNombre.setError("Mal ingreso de campo");
-        etNombre = (EditText) findViewById(R.id.et_agregar_cliente_nombre);
-        etNombre.addTextChangedListener(this);
 
-        etDireccion = (EditText) findViewById(R.id.et_agregar_cliente_direccion);
-        etDireccion.addTextChangedListener(this);
-
-        etTelefono = (EditText) findViewById(R.id.et_agregar_cliente_telefono);
-        etTelefono.addTextChangedListener(this);
-
-        etMail = (EditText) findViewById(R.id.et_agregar_cliente_mail);
-        etMail.addTextChangedListener(this);
-        //<if habilitado>
-
-        //<define el evento click del boton>
-        ingresarCliente.setOnClickListener(accionIngresarCliente);
-        //</define el evento click del boton>
-
-        //</if habilitado>
 
     }
 

@@ -63,7 +63,7 @@ public class ClienteAdapter extends BaseAdapter {
         tvDireccion.setText(listaClientes.get(position).getDireccion());
         tvTelefono.setText(listaClientes.get(position).getTelefono());
         tvMail.setText(listaClientes.get(position).getMail());
-        tvFirebaseKey.setText(listaClientes.get(position).getFirebaseKey());
+        //tvFirebaseKey.setText(listaClientes.get(position).getFirebaseKey());
         return convertView;
     }
 

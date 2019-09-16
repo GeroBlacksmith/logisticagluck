@@ -108,11 +108,7 @@ public class RegistrarActivity extends AppCompatActivity implements TextWatcher{
 
                                         startActivity(new Intent(RegistrarActivity.this, LoginActivity.class));
                                     } else {
-                                        Usuario nuevo=new Usuario(nombre, email, password, auth.getCurrentUser().getUid());
-                                        DatabaseReference referenciaUsuario=firebaseDatabase.getReference().child("Usuarios");
-                                        Map<String, Usuario> mapUsuario = new HashMap<String, Usuario>();
-                                        mapUsuario.put(auth.getCurrentUser().getUid(), nuevo);
-                                        referenciaUsuario.push().setValue(mapUsuario);
+                                        
                                         startActivity(new Intent(RegistrarActivity.this, LoginActivity.class));
                                         finish();
                                     }

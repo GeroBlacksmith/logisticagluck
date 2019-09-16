@@ -16,17 +16,13 @@ import com.example.gero.gluck_logistica.domain.model.Pedido;
 public class PedidoAdapter extends BaseAdapter {
     private Context mContext;
     private Pedido[] listaPedidos={
-            new Pedido(),new Pedido(),new Pedido()
+            new Pedido.Builder().build(),new Pedido.Builder().build(),new Pedido.Builder().build()
     };
 
     public PedidoAdapter(Context context){
         this.mContext=context;
 
-        //cargar el array
-        for(int i=0;i<listaPedidos.length;i++){
-            ((Pedido)(listaPedidos[i])).cantidad= (int) (Math.random()*40);
-            ((Pedido)(listaPedidos[i])).nombreProducto= "Producto " + String.valueOf(i);
-        }
+
     }
 
     @Override
@@ -55,12 +51,7 @@ public class PedidoAdapter extends BaseAdapter {
 
         }
 
-        TextView tvNombreProducto = (TextView)view.findViewById(R.id.tv_pedido_producto);
-        TextView tvCantidad = (TextView)view.findViewById(R.id.tv_pedido_producto_cantidad);
 
-
-        tvNombreProducto.setText(listaPedidos[position].nombreProducto);
-        tvCantidad.setText(String.valueOf(listaPedidos[position].cantidad));
 
         return view;
     }
